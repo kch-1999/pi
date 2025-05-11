@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <style>
+    /* Réinitialisation des marges et bordures */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #121212;
+      color: #f1f1f1;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Header */
+    header {
+      background-color: #1e1e1e;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .nav-button {
+      text-decoration: none;
+      color: #f1f1f1;
+      font-weight: bold;
+      padding: 12px 25px;
+      background-color: #333;
+      border-radius: 5px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .nav-button:hover {
+      background-color: #555;
+      transform: scale(1.05);
+    }
+
+    /* Formulaire d'administration */
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .Container_Admin {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h4, h5 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .Formul_Admin {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .Formul_Admin input {
+      margin: 10px 0;
+      padding: 12px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      background-color: #333;
+      color: #f1f1f1;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .logo_container_Admin {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .logo_container_Admin img {
+      width: 200px;
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1e1e1e;
+      color: #aaaaaa;
+      padding: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="nav-button">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="Container_Admin">
+      <h4>Admin Login</h4>
+      <h5>Access only admin </h5>
+      <form class="Formul_Admin" action="admin.php" method="POST">
+        
+        <label for="admin-name"><strong>pseudo</strong></label>
+        <input type="text" id="admin-name" name="pseudo" required>
+
+        <label for="admin-password"><strong>Mot de passe</strong></label>
+        <input type="password" id="admin-password" name="mot_de_passe" required>
+
+        <div style="text-align: center; margin-top: 20px;">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+
+      <div class="logo_container_Admin">
+        <img src="loggo.jpg" alt="Logo" />
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <img src="logo22.webp" alt="Footer Logo" width="80px">
+    </div>
+    <p>© 2025 Copyright by Khalil Chaabani. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>
