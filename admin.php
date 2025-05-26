@@ -113,7 +113,7 @@ if ($row) {
 
             <main>
                 <div class="Container_Admin">
-                    <h4>Admin Dashboard</h4>
+                    <h4>interface admin </h4>
                     <h5>Choisissez l'option à gérer</h5>
                     <div class="button-container">
                         <a href="ajouterreccete.html"><button type="button">Ajouter une recette</button></a>
