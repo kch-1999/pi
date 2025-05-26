@@ -118,7 +118,7 @@ if ($row) {
                     <div class="button-container">
                         <a href="ajouterreccete.html"><button type="button">Ajouter une recette</button></a>
                         <a href="sup-recette.php"><button type="button">Supprimer une recette</button></a>
-                        <a href="modify_user_profile.html"><button type="button">Modifier le profil utilisateur</button></a>
+                        <a href="sup-compt-utu-ad.php"><button type="button">supprimer le profil utilisateur</button></a>
                     </div>
                 </div>
             </main>
