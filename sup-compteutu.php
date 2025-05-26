@@ -1,5 +1,6 @@
 <?php
-$pseudo = $_POST['username']; // récupéré depuis un formulaire
+$pseudo = trim($_POST['username']); 
+
 
 $conn = new mysqli("localhost", "root", "", "nutrition");
 
@@ -7,7 +8,7 @@ if ($conn->connect_error) {
     die("Erreur de connexion : " . $conn->connect_error);
 }
 
-$sql = "DELETE FROM admin WHERE pseudo = '$pseudo'";
+$sql = "DELETE FROM utilisateur WHERE pseudo = '$pseudo'";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ $result = $conn->query($sql);
     </style>
 </head>
 <body>
-    <h1>Suppression du compte de <?php echo $username; ?></h1>
+    <h1>Suppression du compte de <?php echo $pseudo; ?></h1>
     <?php
     if ($result) {
         echo "<p>Compte supprimé avec succès.</p>";
