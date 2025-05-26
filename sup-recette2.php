@@ -7,10 +7,17 @@ if (!$conn) {
     exit;
 }
 
-// Sélectionner toutes les recettes pour les afficher dans le tableau
+// Si le formulaire a été soumis, suppression de la recette
+if (isset($_POST['delete'])) {
+    $nom = $_POST['nom']; // Pas de mysqli_real_escape_string comme demandé
+
+    $delete_sql = "DELETE FROM recettes WHERE nom = '$nom'";
+    mysqli_query($conn, $delete_sql);
+}
+
+// Recharger les recettes après suppression
 $sql = "SELECT * FROM recettes";
 $result = mysqli_query($conn, $sql);
-
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +27,7 @@ $result = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Recettes</title>
     <style>
-        /* Style CSS personnalisé */
+        /* Ton style CSS inchangé */
         * {
             margin: 0;
             padding: 0;
@@ -106,12 +113,10 @@ $result = mysqli_query($conn, $sql);
             background-color: #d32f2f;
             transform: scale(1.05);
         }
-
     </style>
 </head>
 <body>
 
-    <!-- Tableau des recettes -->
     <h2>Liste des Recettes</h2>
     <table>
         <tr>
@@ -123,7 +128,6 @@ $result = mysqli_query($conn, $sql);
         </tr>
 
         <?php
-        // Affichage des recettes
         foreach ($result as $row) {
             echo "<tr>";
             echo "<td>" . $row['nom'] . "</td>";
@@ -134,13 +138,11 @@ $result = mysqli_query($conn, $sql);
             echo "</tr>";
         }
         ?>
-
     </table>
 
-    <!-- Formulaire de suppression -->
     <div class="form-container">
         <h4>Supprimer une Recette</h4>
-        <form method="POST" action="sup-recette2.php">
+        <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <label for="nom">Nom de la recette à supprimer :</label>
             <input type="text" id="nom" name="nom" required>
             <button type="submit" name="delete">Supprimer</button>
@@ -151,6 +153,5 @@ $result = mysqli_query($conn, $sql);
 </html>
 
 <?php
-// Fermeture de la connexion
 mysqli_close($conn);
 ?>
