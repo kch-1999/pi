@@ -1,5 +1,5 @@
 <?php
-// Connexion à la base de données
+
 $conn = mysqli_connect("localhost", "root", "", "nutrition");
 
 if (!$conn) {
@@ -7,7 +7,7 @@ if (!$conn) {
     exit;
 }
 
-// Vérification et insertion
+
 if (!empty($_POST['nom']) && !empty($_POST['ingredients']) && !empty($_POST['calories']) && !empty($_POST['lipides']) && !empty($_POST['glucides'])) {
     $nom = $_POST['nom'];
     $ingredients = $_POST['ingredients'];
@@ -22,7 +22,7 @@ if (!empty($_POST['nom']) && !empty($_POST['ingredients']) && !empty($_POST['cal
     echo "Tous les champs du formulaire doivent être remplis.";
 }
 
-// Affichage du tableau
+
 $sql = "SELECT * FROM recettes";
 $result = mysqli_query($conn, $sql);
 

@@ -1,5 +1,5 @@
 <?php
-// Connexion à la base de données
+
 $conn = mysqli_connect("localhost", "root", "", "nutrition");
 
 if (!$conn) {
@@ -7,15 +7,15 @@ if (!$conn) {
     exit;
 }
 
-// Si le formulaire a été soumis, suppression de la recette
+
 if (isset($_POST['delete'])) {
-    $nom = $_POST['nom']; // Pas de mysqli_real_escape_string comme demandé
+    $nom = $_POST['nom'];
 
     $delete_sql = "DELETE FROM recettes WHERE nom = '$nom'";
     mysqli_query($conn, $delete_sql);
 }
 
-// Recharger les recettes après suppression
+
 $sql = "SELECT * FROM recettes";
 $result = mysqli_query($conn, $sql);
 ?>
@@ -27,7 +27,7 @@ $result = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Recettes</title>
     <style>
-        /* Ton style CSS inchangé */
+        
         * {
             margin: 0;
             padding: 0;

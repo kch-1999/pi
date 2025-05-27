@@ -1,5 +1,5 @@
 <?php
-// Connexion à la base de données
+
 $conn = mysqli_connect("localhost", "root", "", "nutrition");
 
 if (!$conn) {
@@ -7,19 +7,19 @@ if (!$conn) {
     exit;
 }
 
-// Récupération des données du formulaire
+
 $pseudo = $_POST['pseudo'];
 $mot_de_passe = $_POST['mot_de_passe'];
 
-// Requête pour vérifier si le pseudo existe
+
 $query = "SELECT * FROM admin WHERE pseudo = '$pseudo'";
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 
 if ($row) {
-    // Vérification du mot de passe
+   
     if ($row['mot_de_passe'] == $mot_de_passe) {
-        // Affichage de la page admin si tout est correct
+        
         ?>
         <!DOCTYPE html>
         <html lang="fr">

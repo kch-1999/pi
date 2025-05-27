@@ -54,7 +54,7 @@ if (isset($_POST['recette'])) {
     }
 }
 
-// Récupérer toutes les recettes
+
 $sql_recettes = "SELECT * FROM recettes";
 $result_recettes = mysqli_query($conn, $sql_recettes);
 ?>

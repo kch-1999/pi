@@ -1,5 +1,5 @@
 <?php
-// Connexion à la base de données
+
 $conn = mysqli_connect("localhost", "root", "", "nutrition");
 
 if (!$conn) {
@@ -7,7 +7,7 @@ if (!$conn) {
     exit;
 }
 
-// Sélectionner toutes les recettes pour les afficher dans le tableau
+
 $sql = "SELECT * FROM recettes";
 $result = mysqli_query($conn, $sql);
 
@@ -20,7 +20,7 @@ $result = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Recettes</title>
     <style>
-        /* Style CSS personnalisé */
+        
         * {
             margin: 0;
             padding: 0;
@@ -111,7 +111,7 @@ $result = mysqli_query($conn, $sql);
 </head>
 <body>
 
-    <!-- Tableau des recettes -->
+   
     <h2>Liste des Recettes</h2>
     <table>
         <tr>
@@ -123,7 +123,7 @@ $result = mysqli_query($conn, $sql);
         </tr>
 
         <?php
-        // Affichage des recettes
+        
         foreach ($result as $row) {
             echo "<tr>";
             echo "<td>" . $row['nom'] . "</td>";
@@ -137,7 +137,7 @@ $result = mysqli_query($conn, $sql);
 
     </table>
 
-    <!-- Formulaire de suppression -->
+   
     <div class="form-container">
         <h4>Supprimer une Recette</h4>
         <form method="POST" action="sup-recette2.php">
@@ -151,6 +151,6 @@ $result = mysqli_query($conn, $sql);
 </html>
 
 <?php
-// Fermeture de la connexion
+
 mysqli_close($conn);
 ?>

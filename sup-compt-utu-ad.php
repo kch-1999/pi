@@ -1,5 +1,5 @@
 <?php
-// Connexion
+
 $host = 'localhost';
 $user = 'root';
 $pass = '';
@@ -10,18 +10,18 @@ if ($conn->connect_error) {
     die("Connexion échouée : " . $conn->connect_error);
 }
 
-// Suppression si le formulaire est soumis
+
 if (isset($_POST['username'])) {
-    $username = $_POST['username']; // Attention, pas sécurisé
+    $username = $_POST['username']; 
     $sqlDelete = "DELETE FROM utilisateur WHERE pseudo = '$username'";
     $conn->query($sqlDelete);
 
-    // Pour revenir sur la même page sans resoumettre le formulaire, on peut faire une redirection simple :
+    
     header("Location: sup-compt-utu-ad.php");
     exit;
 }
 
-// Récupération des utilisateurs
+
 $sql = "SELECT id_utilisateur, pseudo, email FROM utilisateur ORDER BY id_utilisateur ASC";
 $result = $conn->query($sql);
 ?>
@@ -32,7 +32,7 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <title>Supprimer le Compte</title>
     <style>
-        /* Ton CSS copié exactement */
+        
         * {
             margin: 0;
             padding: 0;

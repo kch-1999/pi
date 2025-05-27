@@ -5,7 +5,7 @@ $pseudo = $_SESSION['pseudo'];
 
 $conn = mysqli_connect("localhost", "root", "", "nutrition");
 
-// Récupérer l'id_utilisateur à partir du pseudo
+
 $sql_user = "SELECT id_utilisateur FROM utilisateur WHERE pseudo = '$pseudo'";
 $result_user = mysqli_query($conn, $sql_user);
 
@@ -13,11 +13,10 @@ if ($result_user && mysqli_num_rows($result_user) > 0) {
     $row_user = mysqli_fetch_assoc($result_user);
     $id_utilisateur = $row_user['id_utilisateur'];
 
-    // Maintenant récupérer le suivi nutritionnel pour cet utilisateur
     $sql_suivi = "SELECT * FROM suivi_nutritionnel WHERE id_utilisateur = '$id_utilisateur'";
     $result = mysqli_query($conn, $sql_suivi);
 } else {
-    // Pas d'utilisateur trouvé, initialiser $result à vide
+    
     $result = false;
 }
 ?>
